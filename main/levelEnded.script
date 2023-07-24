@@ -1,0 +1,16 @@
+local data = require('main.data')
+
+function on_message(self, message_id, message, sender)
+
+	if message_id == hash("next_level") then 
+		
+		if data.sd.currentLevel == data.sd.maxLevel then 
+
+			print("Rita, game ended")	
+			msg.post("default:/guis#start", "show_start") 
+			msg.post("default:/loader#loader", "unload_level")
+		else 
+			msg.post("default:/loader#loader", "next_level") 
+		end
+	end
+end
